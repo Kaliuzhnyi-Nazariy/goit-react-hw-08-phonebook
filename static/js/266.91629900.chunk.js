@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[266],{1266:function(e,n,t){t.r(n),t.d(n,{default:function(){return r}});var i=t(184);function r(){return(0,i.jsxs)("div",{style:{display:"flex",alignItems:"center",flexDirection:"column",marginTop:"20%"},children:[(0,i.jsx)("h2",{children:"HI, PLEASENT USING CONTACT BOOK"}),(0,i.jsx)("p",{children:'For beginning using this app click on "Contacts" in the top'})]})}}}]);
+//# sourceMappingURL=266.91629900.chunk.js.map
