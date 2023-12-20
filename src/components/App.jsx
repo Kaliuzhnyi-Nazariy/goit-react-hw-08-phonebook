@@ -7,10 +7,12 @@ import { RestrictedRoute } from './Routes/RestrictedRoute';
 import {PrivateRoute} from './Routes/PrivatRoute';
 import { refreshUser } from 'redux/auth/operations';
 
+// const HomePage = lazy(() => import('Pages/Home/Home'));
+
 const HomePage = lazy(() => import("pages/Home"))
 const RegisterPage = lazy(() => import("pages/RegisterPage"))
 const LoginPage = lazy(() => import("pages/LoginPage"))
-const Contacts = lazy(() => import("pages/Contacts"))
+const Contacts = lazy(() => import('pages/Contacts'))
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,13 +22,14 @@ export const App = () => {
     dispatch(refreshUser())
   }, [dispatch]);
 
+
+  
   return (
     isRefreshing ? (<b>Refresh User...</b>) :
       (<Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />}></Route>
          
-          {/* <Route index element={<LoginPage />}></Route> */}
           <Route
             path="/register"
             element={
@@ -45,7 +48,8 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
-          </Route>
+        </Route>
+        <Route path="*" element={<Layout />} />
       </Routes>)
   );
 };
