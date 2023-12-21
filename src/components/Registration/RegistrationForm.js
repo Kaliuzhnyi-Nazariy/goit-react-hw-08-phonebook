@@ -3,6 +3,7 @@ import { register } from 'redux/auth/operations';
 import Button from '@mui/material/Button';
 import { Form } from './RegisterStyled';
 import TextField from '@mui/material/TextField';
+import Notiflix from 'notiflix';
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -16,8 +17,14 @@ export const RegistrationForm = () => {
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
-    form.reset();
+    )
+      .unwrap()
+      .then(() => {
+        Notiflix.Notify.success('Welcome in phone book!');
+      })
+      .catch(error => {
+        Notiflix.Notify.failure('Please try input another info!');
+      });
   };
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
